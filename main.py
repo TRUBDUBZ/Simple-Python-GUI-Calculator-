@@ -20,6 +20,11 @@ def calculate(operation):
     except ValueError:
         result.set("Invalid input")
 
+def clear():
+    entry1.delete(0, tk.END)
+    entry2.delete(0, tk.END)
+    result.set("")
+
 
 # Set GUI Window
 window = tk.Tk()
@@ -45,6 +50,9 @@ tk.Button(window, text="Add", command=lambda: calculate('add')).grid(row=3, colu
 tk.Button(window, text="Subtract", command=lambda: calculate('subtract')).grid(row=3, column=1)
 tk.Button(window, text="Multiply", command=lambda: calculate('multiply')).grid(row=4, column=0)
 tk.Button(window, text="Divide", command=lambda: calculate('divide')).grid(row=4, column=1)
+
+# Clear button
+tk.Button(window, text="Clear", command=clear).grid(row=5, column=0, columnspan=2, pady=5)
 
 # Run the app
 window.mainloop()
